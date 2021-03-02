@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Matches Load Report</title>
+    <link href="../../css/main.css" rel="stylesheet" media="screen" th:href="@{/resources/css/main.css}" />
+</head>
+<body>
+
+<div>
+    <h1>Matches loaded: <span th:text="${totalCount}"></span></h1>
+    <p></p>
+    <h2>Counts by season</h2>
+    <table>
+        <tr>
+            <th>Season</th>
+            <th>Count</th>
+        </tr>
+        <tr th:each="ct : ${seasonCounts.entrySet()}">
+            <td th:text="${ct.key}"></td>
+            <td th:text="${ct.value}"></td>
+        </tr>
+    </table>
+</p>
+<div th:insert="fragments/footer.html"></div>
+
+</body>
+</html>

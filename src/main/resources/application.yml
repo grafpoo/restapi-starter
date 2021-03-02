@@ -1,0 +1,26 @@
+server:
+  port: 12080
+
+spring:
+  datasource:
+    url: jdbc:h2:~/epl-rest-db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,env,health,beans
+  endpoint:
+    health:
+      show-details: always
+    beans:
+      enabled: true

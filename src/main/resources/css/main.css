@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+body {
+    margin: auto;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 300;
+    margin: 0 auto;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+table {
+    width: 70%;
+    border-collapse: collapse;
+}
+
+table, td, th {
+    padding: .70rem;
+    border: #53B97E 1px;
+}
+
+th {
+    text-align: inherit;
+    font-weight: bold;
+    border: #53B97E 1px;
+}
+
+td {
+    border-top: 2px solid #c8c8c8;
+    border: #53B97E 1px;
+}
+
+form {
+    display: flex;
+}
+
+header {
+    background-color: rgba(84, 195, 135, 0.65);
+    width: 100%;
+    overflow: hidden;
+    height: 200px;
+    position:relative;
+}
+
+.left-column {
+    margin-right: 150px;
+}
+
+.text-input {
+    height: 50px;
+    font-size: 18px;
+    padding-left: 14px;
+    border: solid #c8c8c8 1px;
+    width: 100%;
+}
+
+.text-input-small {
+    max-width: 100px;
+}
+
+
+.logo {
+    margin-left: 10%;
+    margin-top: 18px;
+    width: 115px;
+    height: 64px;
+}
+
+.watermark {
+    position: fixed;
+    bottom: -200px;
+    right: -100px;
+}
+
+.small-image {
+    width: 20px;
+    height: 20px;
+}
+
+.split-left {
+    float: left;
+}
+
+.split-right {
+    float: right;
+}
+
+.pad-left {
+    padding-left: 12px;
+}
+
+.top-right-header {
+    float: right;
+    margin-top: 24px;
+    width: 450px;
+}
+
+.top-right-tab {
+    font-size: 24px;
+    color: #53B97E;
+    float: left;
+    padding-left: 4px;
+    padding-right: 36px;
+    width: 150px;
+}
+
+.top-right-tab:hover {
+    background-color: rgba(84, 195, 135, 0.50);
+    transition: .3s;
+}
+
+.bottom-left-header{
+    position:absolute;
+    bottom:0;
+    margin-left: 10%;
+    width: 100%;
+}
+
+.bottom-left-tab {
+    font-size: 32px;
+    color: #53B97E;
+    margin-right: 40px;
+    padding-left: 4px;
+    padding-bottom: 16px;
+    width: 139px;
+}
+
+.bottom-left-welcome-text {
+    font-size: 40px;
+    color: #ffffff;
+    margin-right: 10px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+}
+
+.bottom-left-tab:hover {
+    background-color: rgba(84, 195, 135, 0.50);
+    transition: .3s;
+}
+
+.selected {
+    color: white;
+}
+
+.bottom-left-tab.selected {
+    border-bottom: 3px solid #54C387;
+}
+
+
+#content-container {
+    width: 80%;
+    margin: 28px auto auto;
+}
+
+.clear {
+    clear: both;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Season Report</title>
+    <style type="text/css">
+        .myTable { background-color:#eee;border-collapse:collapse; }
+        .myTable th { background-color:darkgreen;color:white;width:50%; }
+        .myTable td, .myTable th { padding:5px;border:1px solid #000; }
+    </style>
+</head>
+<body>
+
+<div>
+    <h1>Final Standings for <span th:text="${season.getSeason()}"></span></h1>
+    <table class="myTable">
+        <thead>
+        <tr>
+            <th scope="col">Team</th>
+            <th scope="col">Played</th>
+            <th scope="col">Points</th>
+            <th scope="col">Goal Difference</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="teamResult : ${season.teamResults}">
+            <td><span th:text="${teamResult.teamName}"></span></td>
+            <td><span th:text="${teamResult.played}"></span></td>
+            <td><span th:text="${teamResult.points}"></span></td>
+            <td><span th:text="${teamResult.goalDiff}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+<div>
+    <h3>Other Statistics</h3>
+    <table class="myTable">
+        <tbody>
+        <tr>
+            <th>Home Wins</th>
+            <td><span th:text="${season.getHomeWins()}"></span></td>
+        </tr>
+        <tr>
+            <th>Away Wins</th>
+            <td><span th:text="${season.getAwayWins()}"></span></td>
+        </tr>
+        <tr>
+            <th>Draws</th>
+            <td><span th:text="${season.getDraws()}"></span></td>
+        </tr>
+        <tr>
+            <th>Goalless Draws</th>
+            <td><span th:text="${season.getGoallessDraws()}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>
+
+<div>
+    <h1>Statistics for Referees</h1>
+    <table class="myTable">
+        <thead>
+        <tr>
+            <th scope="col">Referee</th>
+            <th scope="col">Home Wins</th>
+            <th scope="col">Away Wins</th>
+            <th scope="col">Draws</th>
+            <th scope="col">Goalless Draws</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="referee : ${season.refereeResults}">
+            <td th:text="${referee.name}">referee</td>
+            <td th:text="${referee.homeWins}">home wins</td>
+            <td th:text="${referee.awayWins}">away wins</td>
+            <td th:text="${referee.draws}">draws</td>
+            <td th:text="${referee.goallessDraws}">goalless draws</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</p>
+<div th:insert="fragments/footer.html"></div>
+
+</body>
+</html>

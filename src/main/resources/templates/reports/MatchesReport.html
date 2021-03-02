@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Matches Detail Report</title>
+    <link href="../../css/main.css" rel="stylesheet" media="screen" th:href="@{/resources/css/main.css}" />
+    <!-- Start Styles. Move the 'style' tags and everything between them to between the 'head' tags -->
+    <style type="text/css">
+        .myTable { background-color:#eee;border-collapse:collapse; }
+        .myTable th { background-color:darkgreen;color:white;width:50%; }
+        .myTable td, .myTable th { padding:5px;border:1px solid #000; }
+    </style>
+    <!-- End Styles -->
+</head>
+<body>
+
+<div>
+    <h1>Matches played: <span th:text="${totalCount}"></span></h1>
+    <p></p>
+    <h2>Matches</h2>
+    <table class="myTable">
+        <tr>
+            <th>gameDate</th>
+            <th>gameTime</th>
+            <th>homeTeam</th>
+            <th>awayTeam</th>
+            <th>fullTimeHomeGoals</th>
+            <th>fullTimeAwayGoals</th>
+            <th>fullTimeResult</th>
+            <th>halfTimeHomeGoals</th>
+            <th>halfTimeAwayGoals</th>
+            <th>halfTimeResult</th>
+            <th>referee</th>
+            <th>homeTeamShots</th>
+            <th>awayTeamShots</th>
+            <th>homeTeamShotsOnTarget</th>
+            <th>awayTeamShotsOnTarget</th>
+            <th>homeTeamFouls</th>
+            <th>awayTeamFouls</th>
+            <th>homeTeamCorners</th>
+            <th>awayTeamCorners</th>
+            <th>homeTeamYellowCards</th>
+            <th>awayTeamYellowCards</th>
+            <th>homeTeamRedCards</th>
+            <th>awayTeamRedCards</th>
+        </tr>
+        <tr th:each="m : ${matches}">
+            <td th:text="${m.gameDate}"></td>
+            <td th:text="${m.gameTime}"></td>
+            <td th:text="${m.homeTeam}"></td>
+            <td th:text="${m.awayTeam}"></td>
+            <td th:text="${m.fullTimeHomeGoals}"></td>
+            <td th:text="${m.fullTimeAwayGoals}"></td>
+            <td th:text="${m.fullTimeResult}"></td>
+            <td th:text="${m.halfTimeHomeGoals}"></td>
+            <td th:text="${m.halfTimeAwayGoals}"></td>
+            <td th:text="${m.halfTimeResult}"></td>
+            <td th:text="${m.referee}"></td>
+            <td th:text="${m.homeTeamShots}"></td>
+            <td th:text="${m.awayTeamShots}"></td>
+            <td th:text="${m.homeTeamShotsOnTarget}"></td>
+            <td th:text="${m.awayTeamShotsOnTarget}"></td>
+            <td th:text="${m.homeTeamFouls}"></td>
+            <td th:text="${m.awayTeamFouls}"></td>
+            <td th:text="${m.homeTeamCorners}"></td>
+            <td th:text="${m.awayTeamCorners}"></td>
+            <td th:text="${m.homeTeamYellowCards}"></td>
+            <td th:text="${m.awayTeamYellowCards}"></td>
+            <td th:text="${m.homeTeamRedCards}"></td>
+            <td th:text="${m.awayTeamRedCards}"></td>
+        </tr>
+    </table>
+</p>
+<div th:insert="fragments/footer.html"></div>
+
+</body>
+</html>
