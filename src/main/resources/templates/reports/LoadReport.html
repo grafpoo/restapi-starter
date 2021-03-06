@@ -7,21 +7,33 @@
 </head>
 <body>
 
-<div>
-    <h1>Matches loaded: <span th:text="${totalCount}"></span></h1>
-    <p></p>
-    <h2>Counts by season</h2>
-    <table>
-        <tr>
-            <th>Season</th>
-            <th>Count</th>
-        </tr>
-        <tr th:each="ct : ${seasonCounts.entrySet()}">
-            <td th:text="${ct.key}"></td>
-            <td th:text="${ct.value}"></td>
-        </tr>
-    </table>
-</p>
+<form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+<!--    <input type="text" name="season">-->
+    <hr/>
+    <input type="file" name="file">
+    <hr/>
+    <input type="submit" value="Upload">
+    <hr/>
+</form>
+
+<div th:if="${seasonCounts != null}">
+    <div>
+        <h1>Matches loaded: <span th:text="${totalCount}"></span></h1>
+        <p></p>
+        <h2>Counts by season</h2>
+        <table>
+            <tr>
+                <th>Season</th>
+                <th>Count</th>
+            </tr>
+            <tr th:each="ct : ${seasonCounts.entrySet()}">
+                <td th:text="${ct.key}"></td>
+                <td th:text="${ct.value}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
 <div th:insert="fragments/footer.html"></div>
 
 </body>

@@ -145,4 +145,8 @@ public class MatchService {
 		goalDiff.put(team, diff+goalDiff.get(team));
 	}
 
+	public List<String> getAllSeasons() {
+		return matchRepository.findSeasons();
+	}
+
 }
