@@ -10,28 +10,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 @Controller
-//@RequestMapping("/reports")
 public class MatchController {
 
     private MatchService matchService;
-
-    @Autowired
-    private ObjectMapper mapper;
 
     @Autowired
     public MatchController(MatchService matchService) {
@@ -66,7 +58,6 @@ public class MatchController {
     }
 
     @PostMapping("/upload")
-//    public String addMatches(@PathVariable String season, @RequestBody List<Match> matches, Model model) {
     public String addMatches(@RequestParam("file") MultipartFile file, Model model) {
         try {
             List<Match> matches = jsonArrayToObjectList(file.getBytes(), Match.class);
@@ -85,6 +76,7 @@ public class MatchController {
 
     // from https://stackoverflow.com/a/57618096
     public <T> List<T> jsonArrayToObjectList(byte[] bytes, Class<T> tClass) throws IOException {
+		ObjectMapper mapper = new ObjectMapper();
         CollectionType listType = mapper.getTypeFactory()
                 .constructCollectionType(ArrayList.class, tClass);
         return mapper.readValue(bytes, listType);
